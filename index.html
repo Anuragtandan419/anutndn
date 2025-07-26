@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Fun Zone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      color: white;
+      text-align: center;
+      transition: background 0.5s ease;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    #message {
+      font-size: 1.3rem;
+      margin: 20px 0;
+      animation: pop 0.6s ease;
+    }
+    .love {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #ffebee;
+      font-weight: bold;
+      animation: heartbeat 1.5s infinite;
+    }
+    button {
+      background: #ff4081;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff79b0;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Random Fun Zone 🎉</h1>
+    <p id="message">Click below for a surprise!</p>
+    <button onclick="showRandomMessage()">Get Fun Message</button>
+    <p class="love">💖 Anurag ❤️ Ranu 💖</p>
+  </div>
+
+  <script>
+    const messages = [
+      "🚀 Keep pushing, your dreams are loading...",
+      "😂 Smile! Life is too short for seriousness.",
+      "🔥 You are unstoppable, believe it!",
+      "🌟 Good vibes only — keep shining!",
+      "🎯 Today is YOUR day to win big!",
+      "💡 Do it now, sometimes ‘later’ becomes ‘never’!",
+      "🍕 Pizza and happiness solve 99% of problems!"
+    ];
+
+    function showRandomMessage() {
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      const messageEl = document.getElementById("message");
+      messageEl.innerText = messages[randomIndex];
+
+      // Background color change effect
+      const colors = [
+        "#6e8efb", "#ff9a9e", "#fad0c4", "#fbc2eb", "#a1c4fd", "#cfd9df"
+      ];
+      document.body.style.background = `linear-gradient(135deg, ${colors[randomIndex % colors.length]}, #a777e3)`;
+    }
+  </script>
+</body>
+</html>
